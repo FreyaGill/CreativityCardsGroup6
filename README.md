@@ -1,2 +1,2 @@
 # CreativityCardsGroup6
-Cards that are creative
+I'll show you creative you little bitch
