@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     public Rigidbody dog;
     public float manSpeed;
     public float dogSpeed;
+    public float leadLength;
+    float coolDown;
 
     void Start()
     {
@@ -42,32 +44,47 @@ public class Movement : MonoBehaviour
             man.velocity = (Vector3.left * manSpeed);
         }
 
-        
 
 
         //Dogo Movement
-        if (Input.GetKey(KeyCode.UpArrow))
+        coolDown -= Time.deltaTime;
+
+        if (Vector3.Distance(man.transform.position, dog.transform.position) < leadLength && coolDown < 0)
         {
-            dog.transform.eulerAngles = new Vector3(0, 0, 0);
-            dog.velocity = (Vector3.forward * dogSpeed);
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                dog.transform.eulerAngles = new Vector3(0, 0, 0);
+                dog.velocity = (Vector3.forward * dogSpeed);
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                dog.transform.eulerAngles = new Vector3(0, 180, 0);
+                dog.velocity = (Vector3.back * dogSpeed);
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                dog.transform.eulerAngles = new Vector3(0, 90, 0);
+                dog.velocity = (Vector3.right * dogSpeed);
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                dog.transform.eulerAngles = new Vector3(0, 270, 0);
+                dog.velocity = (Vector3.left * dogSpeed);
+            }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            dog.transform.eulerAngles = new Vector3(0, 180, 0);
-            dog.velocity = (Vector3.back * dogSpeed);
+        else
+        {            
+            dog.transform.LookAt(new Vector3(man.transform.position.x, dog.transform.position.y, man.transform.position.z));
+            dog.velocity = (dog.transform.forward * dogSpeed);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Vector3.Distance(man.transform.position, dog.transform.position) > leadLength)
         {
-            dog.transform.eulerAngles = new Vector3(0, 90, 0);
-            dog.velocity = (Vector3.right * dogSpeed);
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            dog.transform.eulerAngles = new Vector3(0, 270, 0);
-            dog.velocity = (Vector3.left * dogSpeed);
+            coolDown = 0.2f;
         }
     }
 }
