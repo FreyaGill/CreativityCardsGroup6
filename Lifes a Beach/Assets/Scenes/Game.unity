@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -475,8 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b8065fc49085d4daaddfa31bf83cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAway: 0
-  playerObj: {fileID: 0}
 --- !u!1 &717066281
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,8 +598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b8065fc49085d4daaddfa31bf83cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAway: 0
-  playerObj: {fileID: 0}
 --- !u!65 &1212870249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -798,8 +794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b8065fc49085d4daaddfa31bf83cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAway: 0
-  playerObj: {fileID: 0}
 --- !u!65 &1348282283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1103,6 +1097,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de935bbffcd28134db3ddede2bd05056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closestDigObj: {fileID: 0}
-  closestDigDis: 0
-  speed: 0
