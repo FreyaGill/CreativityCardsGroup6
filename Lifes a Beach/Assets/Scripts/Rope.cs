@@ -41,7 +41,7 @@ public class Rope : MonoBehaviour
         Transform leftpos;
         Transform rightPos;
 
-        for (int i = 0; i <= length; i++)
+        for (int i = 0; i < length; i++)
         {
             leftpos = rope[i + 1].transform.GetChild(0).transform;
             rightPos = rope[i].transform.GetChild(1).transform;
